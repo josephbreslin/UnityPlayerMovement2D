@@ -1,5 +1,5 @@
 /* Joseph Breslin 2018
-* Rigidbody and transform Movement Script for 2D player */
+* Rigidbody and transform movement script for 2D player */
 
 using UnityEngine;
 
@@ -10,14 +10,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 move;
     private float playerSpeed;  
 
-    //Flag to use Rigidbody Movement default to true for performance, If the flag is false this script will move the transform directly.
+    //Flag to use Rigidbody movement. Default to true for optimal performance, 
+    //If the flag is false this script will update the transform directly.
     public bool isRigidBody = true;
 
     //Scaler for player Speed
-    [Range(0, 10)] public float startSpeed;
+    [Range(0, 10)] 
+    public float startSpeed;
 
-    //Axis strings for user input    
-    public string xAxis,
+    //strings for user input axis    
+    public string   xAxis,
                     yAxis;
 
     private void Start()
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (Manager.Instance.gameState == Types.EGameState.FREE)
         {
